@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify — Web Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <div class="container">
+            <aside class="sidebar">
+                <div class="sidebar-box sidebar-nav">
+                    <a href="#" class="logo" aria-label="Spotify home">
+                        <i class="fa-brands fa-spotify" aria-hidden="true"></i>
+                        <span>Spotify</span>
+                    </a>
+                    <nav class="nav-links" aria-label="Main">
+                        <ul>
+                            <li class="active" data-view="home"><a href="#"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+                            <li data-view="search"><a href="#"><i class="fa-solid fa-magnifying-glass"></i><span>Search</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="sidebar-box sidebar-library">
+                    <div class="library-header">
+                        <button type="button" class="library-title">
+                            <i class="fa-solid fa-book-bookmark" aria-hidden="true"></i>
+                            <span>Your Library</span>
+                        </button>
+                        <button type="button" class="icon-btn library-add" aria-label="Create playlist"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="library-filters">
+                        <button type="button" class="filter-chip active">Playlists</button>
+                        <button type="button" class="filter-chip">Artists</button>
+                        <button type="button" class="filter-chip">Albums</button>
+                    </div>
+                    <div class="library-list" id="sidebar-playlists"></div>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <header class="topbar">
+                    <div class="topbar-left">
+                        <div class="nav-arrows">
+                            <button type="button" class="arrow-btn" id="nav-back" disabled aria-label="Go back"><i class="fa-solid fa-chevron-left"></i></button>
+                            <button type="button" class="arrow-btn" id="nav-forward" disabled aria-label="Go forward"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                        <div class="search-container">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                            <input type="search" id="search-input" placeholder="What do you want to listen to?" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="user-profile">
+                        <button type="button" class="upgrade-btn">Explore Premium</button>
+                        <button type="button" class="profile-icon" aria-label="Profile"><i class="fa-solid fa-user"></i></button>
+                    </div>
+                </header>
+
+                <div id="main-view" class="main-view"></div>
+            </main>
+        </div>
+
+        <footer class="bottom-player" role="region" aria-label="Player">
+            <div class="now-playing">
+                <div class="track-art" id="current-art">
+                    <i class="fa-solid fa-music" aria-hidden="true"></i>
+                </div>
+                <div class="track-info">
+                    <button type="button" class="track-name" id="current-title">Select a song</button>
+                    <button type="button" class="track-artist" id="current-artist">—</button>
+                </div>
+                <button type="button" class="icon-btn like-btn" id="like-btn" aria-label="Save to Liked Songs"><i class="fa-regular fa-heart"></i></button>
+            </div>
+
+            <div class="player-controls">
+                <div class="control-buttons">
+                    <button type="button" class="icon-btn shuffle-btn" id="shuffle-btn" aria-label="Shuffle"><i class="fa-solid fa-shuffle"></i></button>
+                    <button type="button" class="icon-btn" id="prev-btn" aria-label="Previous"><i class="fa-solid fa-backward-step"></i></button>
+                    <button type="button" class="play-pause-btn" id="play-pause-btn" aria-label="Play"><i class="fa-solid fa-circle-play"></i></button>
+                    <button type="button" class="icon-btn" id="next-btn" aria-label="Next"><i class="fa-solid fa-forward-step"></i></button>
+                    <button type="button" class="icon-btn repeat-btn" id="repeat-btn" aria-label="Repeat"><i class="fa-solid fa-repeat"></i></button>
+                </div>
+                <div class="progress-container">
+                    <span class="time" id="current-time">0:00</span>
+                    <div class="progress-bar-wrapper" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <span class="time" id="total-duration">0:00</span>
+                </div>
+            </div>
+
+            <div class="extra-controls">
+                <button type="button" class="icon-btn" aria-label="Now playing view"><i class="fa-solid fa-microphone-lines"></i></button>
+                <button type="button" class="icon-btn" aria-label="Queue"><i class="fa-solid fa-list-ul"></i></button>
+                <button type="button" class="icon-btn" aria-label="Connect to a device"><i class="fa-solid fa-desktop"></i></button>
+                <div class="volume-container">
+                    <button type="button" class="icon-btn" id="volume-icon" aria-label="Volume"><i class="fa-solid fa-volume-high"></i></button>
+                    <div class="volume-bar-wrapper" id="volume-wrapper">
+                        <div class="volume-bar" id="volume-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
